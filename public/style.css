@@ -1,0 +1,34 @@
+.card{
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1rem;
+    border: transparent;
+    margin-top: 10%;
+    height: 20rem;
+    width: 20rem;
+  }
+  .head{
+      background-color: #FF0000;
+      border-radius: 1rem 1rem 0rem 0rem;
+      height: 10rem;
+      text-align: center;
+      padding: 1rem;
+  }
+  .bottom{
+    padding: 1rem;
+  }
+  .convert{
+      background-color: #ff0000d3;
+      font-weight: bold;
+      font-size: 15px;
+  }
+  .url-box{
+    border: none;
+    outline: none;
+    font-size: 15px;
+  }
+  .format-field{
+      padding: 1rem;
+  }
+  .form-select{
+      margin: 2px;
+  }
