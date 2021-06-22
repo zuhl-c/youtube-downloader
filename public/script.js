@@ -10,7 +10,9 @@ function convert() {
     } else {
         quality = mp4Q.val();
     }
-    var response = validURL(url);
+    if(url==''){document.getElementById('errors').innerHTML='please enter url';}
+    else{
+        var response = validURL(url);
     if (response) {
         $.ajax({
             url: '/download',
@@ -22,18 +24,21 @@ function convert() {
             method: 'post',
             success: function (response) {
                 //console.log(response);
+                location.href=response;
             }
         })
     } else {
-        alert('plaese enter valid url');
+        document.getElementById('errors').innerHTML='please enter valid url';
+    }
     }
 }
-function validURL(str) {
-    var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
+function validURL(str){
+        var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
         '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
         '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
         '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
         '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
         '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
     return !!pattern.test(str);
+
 }

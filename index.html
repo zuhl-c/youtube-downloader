@@ -20,20 +20,21 @@
                 </div>
                 <div class="bottom">
                     <div class="input text-center">
-                        <input class="url-box" type="text" placeholder="Enter URL" required> <button onclick="clearIn()" class="btn"><i class="fas fa-broom"></i></button>
+                        <h6 id="errors"></h6>
+                        <input class="url-box" type="text" placeholder="Enter URL" > <button onclick="clearIn()" class="btn"><i class="fas fa-broom"></i></button>
                     </div>
                     <div class="format-field">
-                        <select class="form-select" name="" id="format" required>
-                            <option value="mp3">MP3</option>
+                        <select class="form-select" id="format">
                             <option value="mp4">MP4</option>
+                            <option value="mp3">MP3</option>
                         </select>
-                        <select class="form-select" name="" id="mp4-quality" required>
+                        <select class="form-select"  id="mp4-quality">
                             <option value="360p">360p</option>
                             <option value="480p">480p</option>
                             <option value="720p">720p</option>
                             <option value="1080p">1080p</option>
                         </select>
-                        <select class="form-select" name="" id="mp3-quality" required>
+                        <select class="form-select" id="mp3-quality">
                             <option value="128kbps">128kbps</option>
                             <option value="320kbps">360kbps</option>
                         </select>
@@ -47,19 +48,19 @@
     </div>
 </body>
 <script>
+
 var mp3Q=$('#mp3-quality');
 var mp4Q= $('#mp4-quality');
+mp4Q.hide();mp3Q.hide();
 
 window.onload=function(){
-    mp4Q.hide();mp3Q.hide();
-    var format = $('#format').val();
-    if(format=='mp3'){mp3Q.show();
-    }else{mp4Q.show();}
+ var format = $('#format').val();
+ if(format==='mp3'){mp3Q.show();}
+ else{mp4Q.show();}
 }
 
 $('#format').change(function(){
     var format = $('#format').val();
-    //console.log(format);
     if(format=='mp3'){mp3Q.show();mp4Q.hide();}
     else{mp4Q.show();mp3Q.hide();}
 })
